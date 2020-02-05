@@ -29,7 +29,9 @@ module Rails5
           end
         end.parse!
 
-        @files = ARGV
+        @files = ARGV.map do |argv|
+          File.directory?(argv) ? "#{argv}/**/*_spec.rb" : argv
+        end
       end
 
       def run
