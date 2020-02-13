@@ -89,13 +89,13 @@ module Rails5
       private
 
       def autofix_code(original_code, new_code, indent)
-        code = "#TODO: Rails 5 autofix\n"\
+        code = "# TODO: Rails 5 autofix\n"\
           "#{indent}if Fave.next_version?\n" \
           "#{indent + "  "}#{new_code}\n" \
           "#{indent}else\n" \
           "#{indent + "  "}#{original_code}\n" \
           "#{indent}end\n" \
-          "#{indent}#ENDTODO"
+          "#{indent}# ENDTODO"
         code.gsub(", params: {}", "").gsub(", headers: {}", "")
       end
 
